@@ -1,13 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const More = () => {
   return (
     <section>
-      <div className="mycontainer">
-        mere
-      </div>
+      <div className="mycontainer">More</div>
     </section>
-  )
-}
+  );
+};
 
-export default More
+export default More;
