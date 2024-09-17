@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+      @apply text-xl text-center py-5 uppercase px-8 bg-leored text-white font-semibold hover:bg-red-800;
+    }
+    .btn-black {
+      @apply text-lg text-center py-2 uppercase px-5 bg-black text-white font-semibold hover:bg-red-800 rounded-full;
+    }
+    
+    .mycontainer {
+      @apply border-2 border-black p-6 md:p-10 md:w-5/6 lg:w-2/3 mx-auto;
+    }
+    .m-rubrik {
+      @apply text-center text-4xl font-themify;
+    }
+  }
+
+
+  /* -- Skrifttyper/fonts --  */
+  @font-face {
+  /* IE9 Compatibility */src: url("./assets/fonts/themify.eot"); 
+  src: url("/fonts/themify.woff") format("woff"),
+  /* Modern Browsers */ url("/fonts/themify.ttf") format("truetype"),
+  /* Legacy iOS Browsers */ url("/fonts/themify.svg#Themify") format("svg"); 
+  font-family: "Themify";
+}
