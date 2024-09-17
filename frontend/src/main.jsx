@@ -13,7 +13,7 @@ import Frontpage from "./pages/Frontpage.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import More from "./pages/More.jsx";
-import Adminfront from "./pages/ADMIN/ADMINFront.jsx";
+import AdminFront from "./pages/ADMIN/ADMINfront.jsx";
 import AdminChange from "./pages/ADMIN/ADMINChange.jsx";
 
 function App() {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "admin",
-        element: <Adminfront />,
+        element: <AdminFront />,
       },
       {
         path: "admin/edit",

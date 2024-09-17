@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Adminfront = () => {
+const AdminFront = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -139,4 +139,4 @@ const Adminfront = () => {
   );
 };
 
-export default Adminfront;
+export default AdminFront;
