@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { LoginContext } from "../context/LoginContext";
 
 const Navbar = () => {
   const [isSliderOpen, setSliderOpen] = useState(false);
+  const { signOut, user } = useContext(LoginContext);
 
   const toggleSlider = () => {
     setSliderOpen(!isSliderOpen);
   };
 
+  const handleLogout = () => {
+    signOut();
+  };
+
+  const logoLink = user ? "/admin" : "/";
+
   return (
     <header>
-      <nav className="">
-        <div className=" mycontainer px-2 py-2 flex justify-between items-center">
-          <div className=" w-2/12 ">
-            <Link to="/" className="">
+      <nav>
+        <div className="mycontainer flex items-center justify-between px-2 py-2">
+          {/* DEL 1: Logo */}
+          <div className="w-2/12">
+            <Link to={logoLink}>
               <img
                 src="/logo-placeholder.webp"
                 alt="icon"
@@ -21,15 +30,29 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <div className=" w-8/12  mx-auto">
-            <ul className="hidden font-semibold  md:flex justify-center space-x-2">
-              <li className="">
+
+          {/* DEL 2: Navigationslinks og Logout Knappen */}
+          <div className="mx-auto w-8/12">
+            <div className=" w-1/3 md:hidden mx-auto">
+              {user && (
+                <button
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                  className="w-full rounded bg-red-500 py-3 text-center text-white hover:bg-red-800"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
+            <ul className=" justify-center space-x-2 hidden font-semibold md:flex">
+              <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-blue-400 text-white rounded-full py-1 px-3"
-                      : "rounded-full hover:text-gray-400 py-1 px-3"
+                      ? " bg-blue-400 rounded-full px-3 py-1 text-white"
+                      : "rounded-full px-3 py-1 hover:text-gray-400"
                   }
                 >
                   Home
@@ -40,8 +63,8 @@ const Navbar = () => {
                   to="/about"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-blue-400 text-white rounded-full py-1 px-3"
-                      : "rounded-full hover:text-gray-400 py-1 px-3"
+                      ? "rounded-full bg-blue-400 px-3 py-1 text-white"
+                      : "rounded-full px-3 py-1 hover:text-gray-400"
                   }
                 >
                   About
@@ -52,8 +75,8 @@ const Navbar = () => {
                   to="/contact"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-blue-400 text-white rounded-full py-1 px-3"
-                      : "rounded-full hover:text-gray-400 py-1  px-3 "
+                      ? "rounded-full bg-blue-400 px-3 py-1 text-white"
+                      : "rounded-full px-3 py-1 hover:text-gray-400"
                   }
                 >
                   Contact
@@ -64,25 +87,47 @@ const Navbar = () => {
                   to="/more"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-blue-400 text-white rounded-full py-1 px-3"
-                      : "rounded-full hover:text-gray-400 py-1  px-3"
+                      ? "rounded-full bg-blue-400 px-3 py-1 text-white"
+                      : "rounded-full px-3 py-1 hover:text-gray-400"
                   }
                 >
                   More
                 </NavLink>
               </li>
+              {/* Logout Knappen - kun synlig på små skærme og hvis logget ind */}
+              {user && (
+                <li className="md:hidden">
+                  <button
+                    onClick={handleLogout}
+                    className="rounded-full bg-red-500 px-3 py-1 text-white hover:bg-red-700"
+                  >
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 
-          <div className="w-2/12 flex justify-end">
+          {/* DEL 3: Slider Knappen */}
+          <div className="flex w-2/12 justify-end">
+            <div className="mx-auto hidden w-40 md:flex">
+              {user && (
+                <button
+                  onClick={handleLogout}
+                  className="w-full rounded bg-red-500 py-3 text-center text-white hover:bg-red-800"
+                >
+                  Logout
+                </button>
+              )}
+            </div>
             <button
               role="button"
-              className="hover:bg-red-200 p-2 md:hidden bg-gray-500 rounded-lg"
+              className="rounded-lg bg-gray-500 p-2 hover:bg-red-200 md:hidden"
               onClick={toggleSlider}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10 fill-current text-white "
+                className="h-10 w-10 fill-current text-white"
                 viewBox="0 0 448 512"
               >
                 <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
@@ -91,70 +136,70 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* -- SLIDER-INDHOLD -- */}
+      {/* Slider */}
       {isSliderOpen && (
-        <div className="">
-          {/* Overlay - mørk baggrund */}
+        <div className="relative">
+          {/* Slider-Overlay */}
           <div
-            className="fixed inset-0 bg-black opacity-75 z-10"
+            className="fixed inset-0 z-10 bg-black opacity-75"
             onClick={toggleSlider}
           ></div>
 
-          <div className="w-full -mt-20 h-full pt-2 bg-green-700 z-20 font-bold uppercase relative">
-            <div className="">
-              {/* LUK slider - husk nyt billede*/}
-              <div className="w-full flex  justify-end pr-2">
+          <div className="absolute -top-20 left-0 z-20 h-auto w-full bg-green-700 font-bold uppercase">
+            <div>
+              {/* Luk Slider Knappen */}
+              <div className="flex w-full justify-end pr-3 pt-3">
                 <button
-                  className=" text-white bg-red-800 text-center hover:bg-red-400 h-14 w-14  rounded-lg"
+                  className="h-14 w-14 rounded-lg bg-red-800 text-center text-white hover:bg-red-400"
                   onClick={toggleSlider}
                 >
-                  <p className="text-2xl ">X</p>
+                  <p className="text-2xl">X</p>
                 </button>
               </div>
-              <ul className="flex py-2 flex-col items-center font-semibold space-y-2">
-                <li className="hover:bg-red-800 hover:text-white w-full  flex flex-col items-center">
+              <ul className="flex flex-col items-center space-y-2 py-2 font-semibold">
+                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
                   <Link
                     to="/"
-                    className="w-full text-center py-4"
+                    className="w-full py-4 text-center"
                     onClick={toggleSlider}
                   >
-                    home
+                    Home
                   </Link>
                 </li>
-                <li className="hover:bg-red-800 hover:text-white w-full flex flex-col items-center">
+                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
                   <Link
                     to="/about"
-                    className="w-full text-center py-4"
+                    className="w-full py-4 text-center"
                     onClick={toggleSlider}
                   >
-                    about
+                    About
                   </Link>
                 </li>
-                <li className="hover:bg-red-800 hover:text-white w-full flex flex-col items-center">
+                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
                   <Link
                     to="/feature"
-                    className="w-full text-center py-4"
+                    className="w-full py-4 text-center"
                     onClick={toggleSlider}
                   >
-                    feature
+                    Feature
                   </Link>
                 </li>
-                <li className="hover:bg-red-800 hover:text-white w-full flex flex-col items-center">
+                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
                   <Link
                     to="/service"
-                    className="w-full text-center py-4"
+                    className="w-full py-4 text-center"
                     onClick={toggleSlider}
                   >
-                    service
+                    Service
                   </Link>
                 </li>
-                <li className="hover:bg-red-800 hover:text-white w-full flex flex-col items-center">
+                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
                   <Link
                     to="/contact"
-                    className="w-full text-center py-4"
+                    className="w-full py-4 text-center"
                     onClick={toggleSlider}
                   >
-                    contact
+                    Contact
                   </Link>
                 </li>
               </ul>

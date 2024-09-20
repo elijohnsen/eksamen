@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Frontpage = () => {
   return (
     <section>
-    <div className="mycontainer">About  </div>
-  </section>
+      <div className="mycontainer">HOME </div>
+    </section>
   );
 };
 
