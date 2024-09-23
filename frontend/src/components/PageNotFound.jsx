@@ -1,19 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PageNotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white">
-      <div className="text-center mx-auto">
-        <div className="flex justify-center mb-4">
-          <img src="/sadface.svg" alt="Sad-Smiley-Face" className="" />
+    <section>
+      <div className="flex h-screen flex-col items-center justify-center bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-white">
+        <div className="mx-auto text-center">
+          <div className="mb-4 flex justify-center">
+            <img src="/sadface.svg" alt="Sad-Smiley-Face" className="" />
+          </div>
+          <h1 className="mb-4 text-8xl font-extrabold">OOH NOO!</h1>
+          <p className="mb-4 text-2xl font-semibold">Page Not Found</p>
+          <p className="mb-14 text-lg">
+            Sorry, the page you are looking for could not be found :(
+          </p>
+          <Link
+            to="/"
+            className="bb rounded-lg bg-green-400 px-8 py-3 font-bold text-purple-500 transition duration-300 hover:bg-purple-100"
+          >
+            Take me back
+          </Link>
         </div>
-        <h1 className="text-8xl font-extrabold mb-4">OOH NOO!</h1>
-        <p className="text-2xl font-semibold mb-4">Page Not Found</p>
-        <p className="mb-6 text-lg">
-          Sorry, the page you are looking for could not be found :(
-        </p>
       </div>
-    </div>
+    </section>
   );
 };
 

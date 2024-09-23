@@ -6,7 +6,7 @@ const ADMINNavbar = () => {
   return (
     <div className="">
       <Navbar />
-      <nav className=" bg-gray-50 border-t-2 border-gray-400 border-opacity-10">
+      <nav className=" bg-gray-50 border-t-4 border-gray-100">
         <ul className="mycontainer  py-4 font-semibold flex justify-around space-x-3">
           <li className=" w-20 text-center">
             <NavLink

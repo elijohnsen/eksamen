@@ -10,25 +10,25 @@ const Footer = () => {
             <ul className="space-y-3 pb-4">
               <h3 className="font-bold">Services</h3>
               <li>
-                <Link to="group" className="group">
-                  <span className="group-hover:text-white">
+                <Link to="" className="hover:text-white">
+                  <span className="">
                     email marketing
                   </span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">campaigns</span>
+                <Link to="" className=" hover:text-white">
+                  <span className="">campaigns</span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">branding</span>
+                <Link to="" className="hover:text-white">
+                  <span className="">branding</span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">offline</span>
+                <Link to="" className="hover:text-white">
+                  <span className="">offline</span>
                 </Link>
               </li>
             </ul>
@@ -36,25 +36,25 @@ const Footer = () => {
             <ul className="space-y-3">
               <h3 className="font-bold">Services</h3>
               <li>
-                <Link to="group" className="group">
-                  <span className="group-hover:text-white">
+                <Link to="" className="hover:text-white">
+                  <span className="">
                     email marketing
                   </span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">campaigns</span>
+                <Link to="" className=" hover:text-white">
+                  <span className="">campaigns</span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">branding</span>
+                <Link to="" className="hover:text-white">
+                  <span className="">branding</span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">offline</span>
+                <Link to="" className="hover:text-white">
+                  <span className="">offline</span>
                 </Link>
               </li>
             </ul>
@@ -71,25 +71,25 @@ const Footer = () => {
             <ul className="space-y-3">
               <h3 className="font-bold">Services</h3>
               <li>
-                <Link to="group" className="group">
-                  <span className="group-hover:text-white">
+                <Link to="" className="hover:text-white">
+                  <span className="">
                     email marketing
                   </span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">campaigns</span>
+                <Link to="" className=" hover:text-white">
+                  <span className="">campaigns</span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">branding</span>
+                <Link to="" className="hover:text-white">
+                  <span className="">branding</span>
                 </Link>
               </li>
               <li>
-                <Link to="" className="group">
-                  <span className="group-hover:text-white">offline</span>
+                <Link to="" className="hover:text-white">
+                  <span className="">offline</span>
                 </Link>
               </li>
             </ul>

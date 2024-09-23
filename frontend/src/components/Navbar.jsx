@@ -20,38 +20,38 @@ const Navbar = () => {
     <header>
       <nav>
         <div className="mycontainer flex items-center justify-between px-2 py-2">
-          {/* DEL 1: Logo */}
+          {/* DEL 1/3: Logo */}
           <div className="w-2/12">
             <Link to={logoLink}>
               <img
                 src="/logo-placeholder.webp"
                 alt="icon"
-                className="w-16 rounded-lg bg-white hover:bg-blue-400"
+                className="w-16 rounded-lg bg-white transition duration-300 hover:bg-blue-400"
               />
             </Link>
           </div>
 
-          {/* DEL 2: Navigationslinks og Logout Knappen */}
+          {/* DEL 2/3: Navigationslinks og Logout Knappen */}
           <div className="mx-auto w-8/12">
-            <div className=" w-1/3 md:hidden mx-auto">
+            <div className="mx-auto w-1/3 md:hidden">
               {user && (
                 <button
                   onClick={() => {
                     handleLogout();
                   }}
-                  className="w-full rounded bg-red-500 py-3 text-center text-white hover:bg-red-800"
+                  className="w-full rounded bg-red-500 py-3 text-center text-white transition duration-300 hover:bg-red-800"
                 >
                   Logout
                 </button>
               )}
             </div>
-            <ul className=" justify-center space-x-2 hidden font-semibold md:flex">
+            <ul className="hidden justify-center space-x-2 font-semibold md:flex">
               <li>
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? " bg-blue-400 rounded-full px-3 py-1 text-white"
+                      ? "rounded-full bg-blue-400 px-3 py-1 text-white"
                       : "rounded-full px-3 py-1 hover:text-gray-400"
                   }
                 >
@@ -108,13 +108,13 @@ const Navbar = () => {
             </ul>
           </div>
 
-          {/* DEL 3: Slider Knappen */}
+          {/* DEL 3/3: Slider Knappen */}
           <div className="flex w-2/12 justify-end">
             <div className="mx-auto hidden w-40 md:flex">
               {user && (
                 <button
                   onClick={handleLogout}
-                  className="w-full rounded bg-red-500 py-3 text-center text-white hover:bg-red-800"
+                  className="w-full rounded bg-red-500 py-3 text-center text-white transition duration-300 hover:bg-red-800"
                 >
                   Logout
                 </button>
@@ -122,7 +122,7 @@ const Navbar = () => {
             </div>
             <button
               role="button"
-              className="rounded-lg bg-gray-500 p-2 hover:bg-red-200 md:hidden"
+              className="rounded-lg bg-gray-500 p-2 transition duration-300 hover:bg-red-200 md:hidden"
               onClick={toggleSlider}
             >
               <svg
@@ -150,14 +150,14 @@ const Navbar = () => {
               {/* Luk Slider Knappen */}
               <div className="flex w-full justify-end pr-3 pt-3">
                 <button
-                  className="h-14 w-14 rounded-lg bg-red-800 text-center text-white hover:bg-red-400"
+                  className="h-14 w-14 rounded-lg bg-red-800 text-center text-white transition duration-300 hover:bg-red-400"
                   onClick={toggleSlider}
                 >
                   <p className="text-2xl">X</p>
                 </button>
               </div>
               <ul className="flex flex-col items-center space-y-2 py-2 font-semibold">
-                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
+                <li className="flex w-full flex-col items-center transition duration-150 hover:bg-red-800 hover:text-white">
                   <Link
                     to="/"
                     className="w-full py-4 text-center"
@@ -166,7 +166,7 @@ const Navbar = () => {
                     Home
                   </Link>
                 </li>
-                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
+                <li className="flex w-full flex-col items-center transition duration-150 hover:bg-red-800 hover:text-white">
                   <Link
                     to="/about"
                     className="w-full py-4 text-center"
@@ -175,7 +175,7 @@ const Navbar = () => {
                     About
                   </Link>
                 </li>
-                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
+                <li className="flex w-full flex-col items-center transition duration-150 hover:bg-red-800 hover:text-white">
                   <Link
                     to="/feature"
                     className="w-full py-4 text-center"
@@ -184,7 +184,7 @@ const Navbar = () => {
                     Feature
                   </Link>
                 </li>
-                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
+                <li className="flex w-full flex-col items-center transition duration-150 hover:bg-red-800 hover:text-white">
                   <Link
                     to="/service"
                     className="w-full py-4 text-center"
@@ -193,7 +193,7 @@ const Navbar = () => {
                     Service
                   </Link>
                 </li>
-                <li className="flex w-full flex-col items-center hover:bg-red-800 hover:text-white">
+                <li className="flex w-full flex-col items-center transition duration-150 hover:bg-red-800 hover:text-white q q">
                   <Link
                     to="/contact"
                     className="w-full py-4 text-center"
