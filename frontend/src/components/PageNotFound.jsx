@@ -9,16 +9,16 @@ const PageNotFound = () => {
           <div className="mb-4 flex justify-center">
             <img src="/sadface.svg" alt="Sad-Smiley-Face" className="" />
           </div>
-          <h1 className="mb-4 text-8xl font-extrabold">OOH NOO!</h1>
-          <p className="mb-4 text-2xl font-semibold">Page Not Found</p>
+          <h1 className="mb-4 text-6xl font-extrabold">ÅH NEJ!</h1>
+          <p className="mb-4 text-2xl font-semibold">Siden blev ikke fundet</p>
           <p className="mb-14 text-lg">
-            Sorry, the page you are looking for could not be found :(
+            Undskyld! Vi kunne ikke finde siden, du ledte efter :(
           </p>
           <Link
             to="/"
             className="bb rounded-lg bg-green-400 px-8 py-3 font-bold text-purple-500 transition duration-300 hover:bg-purple-100"
           >
-            Take me back
+            Tilbage
           </Link>
         </div>
       </div>

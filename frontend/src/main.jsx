@@ -15,20 +15,29 @@ import "./main.css";
 
 //*PAGES&COMPS
 // LAYOUT COMPONENTS
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/layout/Navbar.jsx";
+import Footer from "./components/layout/Footer";
 import PageNotFound from "./components/PageNotFound.jsx";
 //  --------- PAGES ---------------
 import Frontpage from "./pages/Frontpage.jsx";
-import About from "./pages/About.jsx";
+import Spaceship from "./pages/Spaceship.jsx";
+import Travels from "./pages/Travels.jsx";
+//travel subpages
+import TravelsSub1 from "./pages/TravelsSubpages/TravelsSubMoon.jsx";
+import TravelsSub2 from "./pages/TravelsSubpages/TravelsSubMars.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import Safety from "./pages/Safety.jsx";
 import Contact from "./pages/Contact.jsx";
-import More from "./pages/More.jsx";
+//LOGIN
 import LoginPage from "./pages/ADMIN/LoginPage.jsx";
 //*ADMIN
 import AdminNavbar from "./components/ADMIN/ADMINNavbar.jsx";
-import AdminFront from "./pages/ADMIN/ADMINfront.jsx";
-import AdminEdit from "./pages/ADMIN/ADMINEdit.jsx";
-import ADMINSettings from "./pages/ADMIN/ADMINSettings.jsx";
+
+import AdminFront from "./pages/ADMIN/ADMINFront.jsx";
+import AdminSpaceship from "./pages/ADMIN/ADMINSpaceship.jsx";
+import AdminTure from "./pages/ADMIN/ADMINTravels.jsx";
+import AdminKontakt from "./pages/ADMIN/ADMINContact.jsx";
+
 function App() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -47,9 +56,9 @@ function AdminApp() {
   if (!user) return <Navigate to="/login" replace />;
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-col">
       <AdminNavbar />
-      <main className="flex h-screen flex-grow items-center justify-center bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-700 text-white">
+      <main className="min-h-screen bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-700">
         <Outlet />
       </main>
       <Footer />
@@ -64,9 +73,14 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Frontpage /> },
-      { path: "about", element: <About /> },
-      { path: "contact", element: <Contact /> },
-      { path: "more", element: <More /> },
+      { path: "rumfaergen", element: <Spaceship /> },
+      { path: "ture", element: <Travels /> },
+      { path: "ture/mars", element: <TravelsSub2 /> },
+      { path: "ture/månen", element: <TravelsSub1 /> },
+      { path: "galleri", element: <Gallery /> },
+      { path: "sikkerhed", element: <Safety /> },
+      { path: "kontakt", element: <Contact /> },
+      //Login
       { path: "login", element: <LoginPage /> },
     ],
   },
@@ -75,8 +89,9 @@ const router = createBrowserRouter([
     element: <AdminApp />,
     children: [
       { index: true, element: <AdminFront /> },
-      { path: "edit", element: <AdminEdit /> },
-      { path: "settings", element: <ADMINSettings /> },
+      { path: "rumfaergen", element: <AdminSpaceship /> },
+      { path: "ture", element: <AdminTure /> },
+      { path: "kontakt", element: <AdminKontakt /> },
     ],
   },
 ]);

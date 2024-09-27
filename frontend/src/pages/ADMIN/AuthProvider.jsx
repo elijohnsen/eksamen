@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const checkLoginStatus = async () => {
-    await makeRequest("http://localhost:5023/loggedin", "GET", {
+    await makeRequest("http://localhost:4444/login/loggedin", "GET", {
       withCredentials: true,
     });
 
@@ -30,14 +30,14 @@ export function AuthProvider({ children }) {
     }
 
     if (requestError) {
-      console.error("Error checking login status:", requestError);
+      console.error("Kunne ikke se, om du er logget ind:", requestError);
       setIsLoggedIn(false);
     }
   };
 
   const handleLogin = async (username, password) => {
     await makeRequest(
-      "http://localhost:5023/login",
+      "http://localhost:4444/login/login",
       "POST",
       { withCredentials: true },
       { email: username, password },
@@ -47,24 +47,24 @@ export function AuthProvider({ children }) {
       setIsLoggedIn(true);
       setError(null);
     } else {
-      setError("Login failed. Please try again.");
+      setError("Kunne ikke logge ind. Prøv igen");
     }
 
     if (requestError) {
-      setError("There was an error. Please try again later.");
-      console.error("Error during login:", requestError);
+      setError("Der opstod en fejl :( prøv igen senere");
+      console.error("kunne ikke logge ind:", requestError);
     }
   };
 
   const handleLogout = async () => {
-    await makeRequest("http://localhost:5023/logout", "GET", {
+    await makeRequest("http://localhost:4444/logout", "GET", {
       withCredentials: true,
     });
 
     if (data) {
       setIsLoggedIn(false);
     } else {
-      console.error("Logout failed:", requestError);
+      console.error("Kunne ikke logge ud:", requestError);
     }
   };
 
@@ -85,7 +85,7 @@ export function ProtectedRoute({ children }) {
   const { isLoggedIn } = useAuth();
 
   if (!isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 
   return children;

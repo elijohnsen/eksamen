@@ -1,56 +1,62 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 
 const useRequestData = () => {
-    const [isLoading, setIsLoading] = useState(false); // Loading state
-    const [data, setData] = useState(null); // Data from the API
-    const [error, setError] = useState(null); // Error state
+  const [isLoading, setIsLoading] = useState(false); // Indlæsningsstatus
+  const [data, setData] = useState(null); // Data fra API'en
+  const [error, setError] = useState(null); // Fejlstatus
 
-    const makeRequest = async (url, method = "GET", headers = null, body = null) => {
-        let response;
-        setIsLoading(true); // Set loading to true when the request starts
+  const makeRequest = async (
+    url,
+    method = "GET",
+    headers = null,
+    body = null,
+  ) => {
+    let response;
+    setIsLoading(true); // Sæt indlæsning til sand, når anmodningen starter
 
-        try {
-            switch (method) {
-                case "GET":
-                    response = await axios.get(url, { headers: headers }); // GET request
-                    break;
-                case "POST":
-                    response = await axios.post(url, body, { headers: headers }); // POST request
-                    break;
-                case "PUT":
-                    response = await axios.put(url, body, { headers: headers }); // PUT request
-                    break;
-                case "PATCH":
-                    response = await axios.patch(url, body, { headers: headers }); // PATCH request
-                    break;
-                case "DELETE":
-                    response = await axios.delete(url, { headers: headers }); // DELETE request
-                    break;
-                default:
-                    throw new Error("Invalid method - Expected GET, POST, PUT, PATCH, or DELETE"); // Error if method is unrecognized
-            }
+    try {
+      switch (method) {
+        case "GET":
+          response = await axios.get(url, { headers: headers }); // GET-anmodning
+          break;
+        case "POST":
+          response = await axios.post(url, body, { headers: headers }); // POST-anmodning
+          break;
+        case "PUT":
+          response = await axios.put(url, body, { headers: headers }); // PUT-anmodning
+          break;
+        case "PATCH":
+          response = await axios.patch(url, body, { headers: headers }); // PATCH-anmodning
+          break;
+        case "DELETE":
+          response = await axios.delete(url, { headers: headers }); // DELETE-anmodning
+          break;
+        default:
+          throw new Error(
+            "Ugyldig metode - Forventet GET, POST, PUT, PATCH eller DELETE",
+          ); // Fejl hvis metoden ikke er genkendt
+      }
 
-            // Check if the response is valid
-            if (response && response.data !== undefined) {
-                setData(response.data); // Store the data from the response
-                setError(null);  // Reset the error if the request is successful
-            } else {
-                throw new Error("No data received or response is empty"); // Error if no data is received
-            }
+      // Tjek om svaret er gyldigt
+      if (response && response.data !== undefined) {
+        setData(response.data); // Gem data fra svaret
+        setError(null); // Nulstil fejlen, hvis vellykket
+      } else {
+        throw new Error("Ingen data modtaget eller svaret er tomt"); // Fejl hvis der ikke modtages data
+      }
+    } catch (error) {
+      setData(null); // Nulstil data ved fejl
+      setError(error?.message || "Ukendt fejl opstod"); // Gem fejlinformation
+      console.log("Anmodningsfejl:", error); // Log fejlinformation
+    } finally {
+      setIsLoading(false); // Sæt til falsk, når anmodningen er færdig
+    }
 
-        } catch (error) {
-            setData(null); // Reset data on error
-            setError(error?.message || "Unknown error occurred"); // Store error message
-            console.log("Request Error:", error); // Log error information
-        } finally {
-            setIsLoading(false); // Set loading to false when the request is complete
-        }
+    return response; // Returner svarobjekt for at håndtere det eksternt
+  };
 
-        return response;  // Return the actual response object to handle it externally
-    };
-
-    return { makeRequest, isLoading, data, error }; // Return functions and states
+  return { makeRequest, isLoading, data, error }; // Returner
 };
 
 export default useRequestData;

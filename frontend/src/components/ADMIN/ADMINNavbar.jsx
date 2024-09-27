@@ -1,48 +1,61 @@
 import React from "react";
-import Navbar from "../Navbar";
 import { NavLink } from "react-router-dom";
+import Navbar from "../layout/Navbar";
 
 const ADMINNavbar = () => {
   return (
     <div className="">
       <Navbar />
-      <nav className=" bg-gray-50 border-t-4 border-gray-100">
-        <ul className="mycontainer  py-4 font-semibold flex justify-around space-x-3">
-          <li className=" w-20 text-center">
-            <NavLink
-              to="edit"
-              className={({ isActive }) =>
-                isActive
-                  ? "bg-blue-800 text-white w-full rounded-full py-1 px-6"
-                  : "rounded-full hover:text-gray-400 py-1 px-3"
-              }
-            >
-              Edit
-            </NavLink>
-          </li>
-          <li className=" w-20 text-center">
+      <nav className="border-t-4 border-gray-100 bg-gray-50">
+        <ul className="mycontainer flex justify-around space-x-3 py-4 font-semibold">
+        <li className="w-20 text-center">
             <NavLink
               to="/admin"
               end
               className={({ isActive }) =>
                 isActive
-                  ? "bg-blue-800 text-white rounded-full py-1 px-3"
-                  : "rounded-full hover:text-gray-400 py-1 px-3"
+                  ? "rounded-full bg-primarycolor px-3 py-1 text-white"
+                  : "rounded-full px-3 py-1 hover:text-gray-400"
               }
             >
               ADMIN
             </NavLink>
           </li>
-          <li className=" w-20 text-center">
+        <li className="w-20 text-center">
             <NavLink
-              to="settings"
+              to="rumfaergen"
               className={({ isActive }) =>
                 isActive
-                  ? "bg-blue-800 text-white rounded-full py-1 px-3"
-                  : "rounded-full hover:text-gray-400 py-1 px-3"
+                  ? "w-full rounded-full bg-primarycolor px-6 py-1 text-white"
+                  : "rounded-full px-3 py-1 hover:text-gray-400"
               }
             >
-              Settings
+              Rumfærgen
+            </NavLink>
+          </li>
+          <li className="w-20 text-center">
+            <NavLink
+              to="ture"
+              className={({ isActive }) =>
+                isActive
+                  ? "w-full rounded-full bg-primarycolor px-6 py-1 text-white"
+                  : "rounded-full px-3 py-1 hover:text-gray-400"
+              }
+            >
+              Ture
+            </NavLink>
+          </li>
+       
+          <li className="w-20 text-center">
+            <NavLink
+              to="kontakt"
+              className={({ isActive }) =>
+                isActive
+                  ? "rounded-full bg-primarycolor px-3 py-1 text-white"
+                  : "rounded-full px-3 py-1 hover:text-gray-400"
+              }
+            >
+              Kontakt
             </NavLink>
           </li>
         </ul>

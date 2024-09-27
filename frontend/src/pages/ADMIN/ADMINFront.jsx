@@ -3,35 +3,49 @@ import { Link } from "react-router-dom";
 
 const AdminFront = () => {
   return (
-    <div className="relative flex min-h-screen items-center justify-center">
-      <div className="space-y-10">
-        <div className="mx-auto rounded-lg bg-gray-800 bg-opacity-75 px-10 py-8 text-center shadow-lg md:p-14">
+    <section className="">
+      <div className="mycontainer space-y-8 py-20">
+        {/* VELKOMSTBESKED */}
+        <div className="py-6 text-center text-white">
           <div className="mb-6 flex justify-center">
             <img
               src="/wave.svg"
               alt="Waving-Hand-illustration"
-              className="h-24 w-24"
+              className="w-16"
             />
           </div>
-          <h1 className="mb-4 text-6xl font-bold">Welcome Admin!</h1>
-          <p className="text-xl">You are now logged in!.</p>
+          <div className="space-y-5">
+            <h1 className="text-2xl font-bold leading-snug">
+              Hejsa, Rumkaptajn!
+            </h1>
+            <p className="text-xl">
+              Nu er du logget ind. <br /> Herfra kan du ændre sidernes indhold:
+            </p>
+          </div>
         </div>
-        <section className="flex items-center justify-between px-6 text-center">
+        {/* MENU til redigeringssiderne */}
+        <article className="flex flex-col items-center justify-between space-y-4 px-6 text-center md:flex-row md:space-x-10 md:space-y-0">
           <Link
-            to="edit"
-            className="hover:scale-102 flex h-40 w-5/12 transform items-center justify-center rounded-lg border border-red-600 bg-gradient-to-r from-red-400 to-red-600 text-white shadow-md transition-transform duration-200 hover:shadow-lg"
+            to="rumfaergen"
+            className="flex h-20 w-full items-center justify-center rounded-lg border border-red-600 bg-gradient-to-r from-red-400 to-red-600 text-white shadow-md transition-transform duration-200 hover:to-red-950 hover:shadow-lg md:w-1/3"
           >
-            <h3 className="text-2xl font-semibold">gå til edit</h3>
+            <h3 className="text-2xl font-semibold">Rumfærgen</h3>
           </Link>
           <Link
-            to="settings"
-            className="hover:scale-102 flex h-40 w-5/12 transform items-center justify-center rounded-lg border border-red-600 bg-gradient-to-r from-red-400 to-red-600 text-white shadow-md transition-transform duration-200 hover:shadow-lg"
+            to="ture"
+            className="flex h-20 w-full items-center justify-center rounded-lg border border-red-600 bg-gradient-to-r from-red-400 to-red-600 text-white shadow-md transition-transform duration-200 hover:from-red-600 hover:shadow-lg md:w-1/3"
           >
-            <h3 className="text-2xl font-semibold">gå til settings</h3>
+            <h3 className="text-2xl font-semibold">Ture</h3>
           </Link>
-        </section>
+          <Link
+            to="kontakt"
+            className="flex h-20 w-full items-center justify-center rounded-lg border border-red-600 bg-gradient-to-r from-red-400 to-red-600 text-white shadow-md transition-transform duration-200 hover:to-red-950  hover:shadow-lg md:w-1/3"
+          >
+            <h3 className="text-2xl font-semibold">Kontakt</h3>
+          </Link>
+        </article>
       </div>
-    </div>
+    </section>
   );
 };
 

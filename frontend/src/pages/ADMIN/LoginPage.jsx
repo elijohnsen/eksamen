@@ -23,7 +23,7 @@ const LoginPage = () => {
       setError(null);
       navigate("/admin");
     } else {
-      setError("Login failed. Please try again.");
+      setError("Noget gik galt. prøv igen.");
     }
   };
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
               className="mb-2 block text-left text-sm font-bold text-gray-700"
               htmlFor="username"
             >
-              Username
+              Brugernavn
             </label>
             <input
               className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
@@ -54,7 +54,7 @@ const LoginPage = () => {
               className="mb-2 block text-left text-sm font-bold text-gray-700"
               htmlFor="password"
             >
-              Password
+              Kodeord
             </label>
             <input
               className="focus:shadow-outline mb-3 w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
@@ -72,7 +72,7 @@ const LoginPage = () => {
               className="focus:shadow-outline mx-auto rounded bg-green-400 px-4 py-2 font-bold text-white hover:bg-green-800 focus:outline-none"
               type="submit"
             >
-              Log in
+              Log ind
             </button>
           </div>
         </form>
