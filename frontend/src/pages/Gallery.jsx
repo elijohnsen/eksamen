@@ -59,7 +59,7 @@ const Gallery = () => {
                       openLightbox(
                         `/src/assets/images/spaceship/${gallery.image}`,
                       )
-                    } // Open lightbox on click
+                    }
                   />
                   <div className="pl-1 font-medium">{gallery.imagetext}</div>
                 </div>
